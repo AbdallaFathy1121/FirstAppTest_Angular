@@ -1,0 +1,12 @@
+<ul>
+    <li *ngIf="element != null">
+      <div *ngIf="element.type == 'blueprint'" style="color: blue;">
+        <h5>{{ element.name }}</h5>
+        <p>{{ element.content }}</p>
+      </div>
+      <div *ngIf="element.type == 'server'" style="color: red;">
+        <h5>{{ element.name }}</h5>
+        <p>{{ element.content }}</p>
+      </div>
+    </li>
+</ul>

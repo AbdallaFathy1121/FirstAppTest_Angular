@@ -1,0 +1,15 @@
+body {
+    word-wrap: break-word;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    color: blue;
+}
+
+.btn-success {
+    margin-right: 5px;
+}

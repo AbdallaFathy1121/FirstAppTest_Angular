@@ -4,5 +4,19 @@
         (bluePrintCreated)="onBluePrintAdded($event)"></app-cockpit>
     <hr>
     <app-server-element 
-        *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+        *ngFor="let serverElement of serverElements" [element]="serverElement">
+    
+        <!-- Using ng-content -->
+        <li>
+            <div *ngIf="serverElement.type == 'blueprint'" style="color: blue;">
+              <h5>{{ serverElement.name }}</h5>
+              <p>{{ serverElement.content }}</p>
+            </div>
+            <div *ngIf="serverElement.type == 'server'" style="color: red;">
+              <h5>{{ serverElement.name }}</h5>
+              <p>{{ serverElement.content }}</p>
+            </div>
+        </li>
+
+    </app-server-element>
 </div>

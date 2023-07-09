@@ -13,7 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   {path: '', component: Test1Component},
-  {path: 'test2', component: Test2Component}
+  {path: 'test2', component: Test2Component},
+  {path: 'test2/:id', component: Test2Component}
 ]
 
 @NgModule({

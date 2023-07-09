@@ -13,3 +13,7 @@ h2 {
 .btn-success {
     margin-right: 5px;
 }
+
+.active {
+    color: red !important;
+}

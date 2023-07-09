@@ -1,12 +1,11 @@
 <div class="container mt-5">
-    <app-cockpit
+    <!-- <app-cockpit
         (serverCreated)="onServerAdded($event)"
         (bluePrintCreated)="onBluePrintAdded($event)"></app-cockpit>
     <hr>
     <app-server-element 
         *ngFor="let serverElement of serverElements" [element]="serverElement">
     
-        <!-- Using ng-content -->
         <li>
             <div *ngIf="serverElement.type == 'blueprint'" style="color: blue;">
               <h5>{{ serverElement.name }}</h5>
@@ -18,5 +17,12 @@
             </div>
         </li>
 
-    </app-server-element>
+    </app-server-element> -->
+
+    <a routerLink="">Test 1</a>
+    <a routerLink="test2">Test 2</a>
+    <a [routerLink]="['test2']">aaaaaaaa</a>
+
+    <router-outlet></router-outlet>
+
 </div>

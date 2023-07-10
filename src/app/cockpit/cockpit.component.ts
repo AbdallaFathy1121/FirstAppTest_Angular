@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cockpit',
@@ -12,7 +13,7 @@ export class CockpitComponent implements OnInit {
   
   @ViewChild('serverContentInput') serverContentInput!: ElementRef;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,8 @@ export class CockpitComponent implements OnInit {
       serverName: nameInput.value, 
       serverContent: this.serverContentInput.nativeElement.value
     });
+
+    this.router.navigate(['/servers', nameInput.value, this.serverContentInput.nativeElement.value], {queryParams: {param: 'query'}, fragment: 'loading'});
   }
 
   onAddBlueprint(nameInput: HTMLInputElement) {

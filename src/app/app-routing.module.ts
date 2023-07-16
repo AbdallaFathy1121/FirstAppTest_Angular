@@ -6,14 +6,19 @@ import { UsersComponent } from './users/users.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserComponent } from './users/user/user.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   {path: '', component: Test1Component},
   {path: 'test2', component: Test2Component},
-  {path: 'users', component: UsersComponent},
+  {path: 'users', canActivate: [AuthGuard], component: UsersComponent, children: [
+    {path: ':id/:name', component: UserComponent}
+  ]},
   {path: 'cockpit', component: CockpitComponent},
-  {path: 'servers', component: ServerElementComponent},
-  {path: 'servers/:name/:content', component: ServerElementComponent},
+  {path: 'servers', component: ServerElementComponent, children: [
+    {path: ':name/:content', component: ServerElementComponent},
+  ]},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ]

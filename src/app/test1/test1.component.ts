@@ -16,5 +16,4 @@ export class Test1Component implements OnInit {
   onNavigateTo() {
     this.router.navigate(['/test2']);
   }
-
 }

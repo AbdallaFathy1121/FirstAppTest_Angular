@@ -11,7 +11,7 @@ import { Test2Component } from './test2/test2.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [									
@@ -29,7 +29,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

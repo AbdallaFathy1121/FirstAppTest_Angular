@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +13,10 @@ import { UserComponent } from './users/user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth/auth.service';
 import { TdFormComponent } from './td-form/td-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
-  declarations: [										
+  declarations: [											
     AppComponent,
       CockpitComponent,
       ServerElementComponent,
@@ -24,12 +25,14 @@ import { TdFormComponent } from './td-form/td-form.component';
       UsersComponent,
       UserComponent,
       NotFoundComponent,
-      TdFormComponent
+      TdFormComponent,
+      ReactiveFormComponent
    ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

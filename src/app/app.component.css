@@ -17,3 +17,11 @@ h2 {
 .active {
     color: red !important;
 }
+
+.app a {
+    margin-right: 7px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(2, 2, 204);
+}

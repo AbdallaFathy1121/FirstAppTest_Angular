@@ -9,11 +9,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserComponent } from './users/user/user.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TdFormComponent } from './td-form/td-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const appRoutes: Routes = [
   {path: '', component: Test1Component},
   {path: 'test2', component: Test2Component},
-  {path: 'form', component: TdFormComponent},
+  {path: 'td-form', component: TdFormComponent},
+  {path: 'r-form', component: ReactiveFormComponent},
   {path: 'users', canActivate: [AuthGuard], component: UsersComponent, children: [
     {path: ':id/:name', component: UserComponent}
   ]},

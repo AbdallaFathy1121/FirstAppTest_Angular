@@ -12,9 +12,10 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth/auth.service';
+import { TdFormComponent } from './td-form/td-form.component';
 
 @NgModule({
-  declarations: [									
+  declarations: [										
     AppComponent,
       CockpitComponent,
       ServerElementComponent,
@@ -22,12 +23,13 @@ import { AuthService } from './auth/auth.service';
       Test2Component,
       UsersComponent,
       UserComponent,
-      NotFoundComponent
+      NotFoundComponent,
+      TdFormComponent
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

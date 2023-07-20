@@ -8,10 +8,12 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserComponent } from './users/user/user.component';
 import { AuthGuard } from './auth/auth.guard';
+import { TdFormComponent } from './td-form/td-form.component';
 
 const appRoutes: Routes = [
   {path: '', component: Test1Component},
   {path: 'test2', component: Test2Component},
+  {path: 'form', component: TdFormComponent},
   {path: 'users', canActivate: [AuthGuard], component: UsersComponent, children: [
     {path: ':id/:name', component: UserComponent}
   ]},

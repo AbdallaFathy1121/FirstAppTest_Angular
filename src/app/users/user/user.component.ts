@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
     this.paramSubscription = this.route.params
       .subscribe(
         (params: Params) => {
-          this.user.id = params['id'];
+          this.user.id = +params['id'];
           this.user.name = params['name'];
         }
       );

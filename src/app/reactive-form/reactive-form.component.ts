@@ -9,13 +9,14 @@ import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '
 export class ReactiveFormComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm!: FormGroup;
+  forbiddenUsernames = ['abdala', 'omar'];
   
   constructor() { }
   
   ngOnInit() {
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email])
       }),
       'gender': new FormControl('male'),
@@ -37,5 +38,11 @@ export class ReactiveFormComponent implements OnInit {
     return controls;
   }
 
+  forbiddenNames(control: FormControl): {[s: string]: boolean} | null {
+    if(this.forbiddenUsernames.indexOf(control.value) !== -1) {
+      return {"nameIsForbidden": true};
+    }
+    return null;
+  }
 
 }

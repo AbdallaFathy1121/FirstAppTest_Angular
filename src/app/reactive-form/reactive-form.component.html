@@ -13,7 +13,14 @@
               <span 
                 class="text-danger"
                 *ngIf="!signupForm.get('userData.username')?.valid && signupForm.get('userData.username')?.touched">
-                Please enter a valid username!
+                <span 
+                  *ngIf="signupForm.get('userData.username')?.errors?.['required']">
+                  Username is required!
+                </span>
+                <span 
+                  *ngIf="signupForm.get('userData.username')?.errors?.['nameIsForbidden']">
+                  This Name is inValid!
+                </span>
               </span>
           </div>
           <div class="form-group mb-3 mt-3">
@@ -48,14 +55,19 @@
             class="btn btn-secondary mb-1"
             type="button"
             (click)="onAddHobby()">Add Hobby</button>
-          <div
-            *ngFor="let hobbyControl of hobbyControls; let i = index">
+          <div *ngFor="let hobbyControl of hobbyControls; let i = index">
             <input type="text" class="form-control mt-1" [formControlName]="i">
+            <span 
+              class="text-danger" 
+              *ngIf="!hobbyControl?.valid && hobbyControl?.touched">
+              Please enter a valid Hobby!
+            </span>
           </div>
         </div>
         <button 
           class="btn btn-primary" 
-          type="submit">Submit</button>
+          type="submit"
+          [disabled]="!signupForm.valid">Submit</button>
       </form>
     </div>
   </div>

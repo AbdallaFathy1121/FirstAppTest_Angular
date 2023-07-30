@@ -10,12 +10,14 @@ import { UserComponent } from './users/user/user.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { HttpTestComponent } from './http-test/http-test.component';
 
 const appRoutes: Routes = [
   {path: '', component: Test1Component},
   {path: 'test2', component: Test2Component},
   {path: 'td-form', component: TdFormComponent},
   {path: 'r-form', component: ReactiveFormComponent},
+  {path: 'http-form', component: HttpTestComponent},
   {path: 'users', canActivate: [AuthGuard], component: UsersComponent, children: [
     {path: ':id/:name', component: UserComponent}
   ]},

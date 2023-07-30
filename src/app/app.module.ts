@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +15,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth/auth.service';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { HttpTestComponent } from './http-test/http-test.component';
 
 @NgModule({
-  declarations: [											
+  declarations: [												
     AppComponent,
       CockpitComponent,
       ServerElementComponent,
@@ -26,13 +28,15 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
       UserComponent,
       NotFoundComponent,
       TdFormComponent,
-      ReactiveFormComponent
+      ReactiveFormComponent,
+      HttpTestComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-http-test',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./http-test.component.css']
 })
 export class HttpTestComponent implements OnInit {
-  loadedPosts!: [];
+  loadedPosts!: Post[];
+  isFetching = false;
 
   constructor(private http: HttpClient) { }
 
@@ -22,9 +25,9 @@ export class HttpTestComponent implements OnInit {
         'https://angular-test-10285-default-rtdb.firebaseio.com/posts.json',
         postData
       )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
+      .subscribe(posts => {
+        console.log(posts);
+      })
   }
 
   onFetchPosts() {
@@ -37,10 +40,25 @@ export class HttpTestComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFetching = true;
     this.http
-      .get('https://angular-test-10285-default-rtdb.firebaseio.com/posts.json')
+      .get<{[key: string]: Post}> (
+        'https://angular-test-10285-default-rtdb.firebaseio.com/posts.json'
+      )
+      .pipe(
+        map(responseData => {
+          const postArray: Post[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postArray.push({ id: key, ...responseData[key as keyof typeof responseData] });
+            }
+          }
+          return postArray;
+        })
+      )
       .subscribe(posts => {
-        console.log(posts);
+        this.isFetching =false;
+        this.loadedPosts = posts;
       });
   }
 

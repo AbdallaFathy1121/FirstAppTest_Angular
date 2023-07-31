@@ -16,6 +16,7 @@ import { AuthService } from './auth/auth.service';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpTestComponent } from './http-test/http-test.component';
+import { PostService } from './http-test/post.service';
 
 @NgModule({
   declarations: [												
@@ -38,7 +39,7 @@ import { HttpTestComponent } from './http-test/http-test.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
